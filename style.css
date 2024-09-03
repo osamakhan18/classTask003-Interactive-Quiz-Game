@@ -32,7 +32,7 @@
     margin-top: 20px;
 }
 
-/* #para{
+ #para{
 
     
     width: 450px;
@@ -49,7 +49,7 @@
     text-align: center;
     transition: 2s;
 
-}
+} 
 
 #para:hover{
     transform: scale(1.1);
@@ -71,7 +71,7 @@
 padding-top: 20px;
     width: 550px;
     height: 250px;
-    /* background-color: brown; */
+    
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -83,7 +83,7 @@ padding-top: 20px;
     
 }
 
-#next{
+/* #next{
 
     width:200px ;
     height: 60px;
@@ -94,4 +94,4 @@ padding-top: 20px;
     margin: 0 auto;
 
 
-} */
+}   */
