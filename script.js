@@ -28,7 +28,6 @@ function  quiz_option_box(){
 
     document.getElementById("para").textContent = question_list[question_list_index].question;
 
-
     document.getElementById("option1").textContent = question_list[question_list_index].options[0];
     document.getElementById("option2").textContent = question_list[question_list_index].options[1];
     document.getElementById("option3").textContent = question_list[question_list_index].options[2];
@@ -38,35 +37,51 @@ function  quiz_option_box(){
 
 function correct_option(select_option){
 
+   
+    // var option1 =document.getElementById("option1")
+    // var option2 =document.getElementById("option2")
+    // var option3 =document.getElementById("option3")
+    // var option4 =document.getElementById("option4")
+
     if(select_option == question_list[question_list_index].answer){
+        
         
         document.getElementById('result').textContent = "you got it right";
         score++;
-        document.getElementById('score').textContent = ` score :${score}`;
-       
-        // question_list_index++;
-        // quiz_option_box()
-    }else{
-         document.getElementById('result').textContent = "try again next time "
         
+        document.getElementById('score').textContent = ` score :${score}`;
+        document.getElementById(`option${select_option + 1}`).style.backgroundColor = 'green'
        
-        // question_list_index++
-        // quiz_option_box();
+    }else{
+         document.getElementById('result').textContent = "try again next time ";
+         document.getElementById(`option${select_option + 1}`).style.backgroundColor = 'red';
+           
     }
 
 }
 
 
 function nextQuestion() {
-    if (question_list_index < question_list.length ) {
+
+    var option1=document.getElementById('option1').style.backgroundColor ='white'
+    var option1=document.getElementById('option2').style.backgroundColor ='white'
+    var option1=document.getElementById('option3').style.backgroundColor ='white'
+    var option1=document.getElementById('option4').style.backgroundColor ='white'
+
+    
+
+    if (question_list_index < question_list.length-1 ) {
         question_list_index++;
         quiz_option_box();
+       
+
     } else {
         document.getElementById("result").textContent = `Quiz Complete! Your final score is ${score}.`;
-        // document.getElementById("next-question").style.display = "none";
-        // Optionally, you can add a Play Again button to restart the quiz
-    }
+    //     document.getElementsByClassName("final-score")[0].textContent = `Quiz Complete! Your final score is ${score}.`;
+     }
 }
+
+
 quiz_option_box()
 
 
