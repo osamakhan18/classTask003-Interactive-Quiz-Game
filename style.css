@@ -109,7 +109,7 @@ padding-top: 20px;
 
 }  
 
- .score{
+#score{
     width:150px ;
     height: 50px;
     background-color: rgb(212, 76, 76);
@@ -130,5 +130,7 @@ padding-top: 20px;
     height: 50px;
     background-color: blue;
     margin: 0 auto;
+    color: antiquewhite;
+    font-size: larger;
 }
 
