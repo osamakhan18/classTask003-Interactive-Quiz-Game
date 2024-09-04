@@ -39,12 +39,14 @@ function  quiz_option_box(){
 function correct_option(select_option){
 
     if(select_option == question_list[question_list_index].answer){
-        alert('you got it right')
+        // alert('you got it right')
+        document.getElementById('result').textContent = "you got it right"
        
         question_list_index++;
         quiz_option_box()
     }else{
-        alert('try this next time ')
+         document.getElementById('result').textContent = "you got it right"
+        // alert('try this next time ')
        
         question_list_index++
         quiz_option_box();
@@ -53,18 +55,16 @@ function correct_option(select_option){
 }
 
 
-
-// function nextQuestion() {
-//     question_list_index++;
-//     if (question_list_index < question_list.length) {
-//         quiz_option_box();
-//     } else {
-//         alert('Quiz Completed!');
-//         question_list_index = 0; // Optionally reset for a new attempt
-//         quiz_option_box();
-//     }
-// }
-
-// quiz_option_box()
+function nextQuestion() {
+    if (question_list_index < question_list.length - 1) {
+        question_list_index++;
+        quiz_option_box();
+    } else {
+        // document.getElementById("result").textContent = `Quiz Complete! Your final score is ${score}.`;
+        // document.getElementById("next-question").style.display = "none";
+        // Optionally, you can add a Play Again button to restart the quiz
+    }
+}
+quiz_option_box()
 
 
