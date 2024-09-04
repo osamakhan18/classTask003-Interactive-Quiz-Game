@@ -7,7 +7,7 @@ var question_list = [
     },
 
     {
-        question:5 * 5 ,
+        question:"5 * 5 ",
         options:[10,20,30,25],
         answer:3,
     },
@@ -45,15 +45,17 @@ function correct_option(select_option){
 
     if(select_option == question_list[question_list_index].answer){
         
+      //  alert('correct')
         
-        document.getElementById('result').textContent = "you got it right";
+        //document.getElementById('result').textContent = "you got it right";
         score++;
         
         document.getElementById('score').textContent = ` score :${score}`;
         document.getElementById(`option${select_option + 1}`).style.backgroundColor = 'green'
        
     }else{
-         document.getElementById('result').textContent = "try again next time ";
+       // alert('try next time')
+         //document.getElementById('result').textContent = "try again next time ";
          document.getElementById(`option${select_option + 1}`).style.backgroundColor = 'red';
            
     }
@@ -79,6 +81,20 @@ function nextQuestion() {
         document.getElementById("result").textContent = `Quiz Complete! Your final score is ${score}.`;
     //     document.getElementsByClassName("final-score")[0].textContent = `Quiz Complete! Your final score is ${score}.`;
      }
+}
+
+
+function restart(){
+    question_list_index=0;
+    score = 0;
+    document.getElementById('score').textContent = "score :" + score;
+    document.getElementById('result').textContent="";
+    // document.getElementById("next-question").style.display = "inline"; // Show the Next Question button
+    // document.getElementById("play-again").style.display = "none";
+
+    quiz_option_box()
+
+
 }
 
 
