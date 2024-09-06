@@ -38,24 +38,18 @@ function  quiz_option_box(){
 function correct_option(select_option){
 
    
-    // var option1 =document.getElementById("option1")
-    // var option2 =document.getElementById("option2")
-    // var option3 =document.getElementById("option3")
-    // var option4 =document.getElementById("option4")
+    
 
     if(select_option == question_list[question_list_index].answer){
         
-      //  alert('correct')
-        
-        //document.getElementById('result').textContent = "you got it right";
+     
         score++;
         
         document.getElementById('score').textContent = ` score :${score}`;
         document.getElementById(`option${select_option + 1}`).style.backgroundColor = 'green'
        
     }else{
-       // alert('try next time')
-         //document.getElementById('result').textContent = "try again next time ";
+       
          document.getElementById(`option${select_option + 1}`).style.backgroundColor = 'red';
            
     }
@@ -78,9 +72,9 @@ function nextQuestion() {
        
 
     } else {
-        document.getElementById("result").textContent = `Quiz Complete! Your final score is ${score}.`;
-    //     document.getElementsByClassName("final-score")[0].textContent = `Quiz Complete! Your final score is ${score}.`;
-     }
+      
+        alert(`your final score is ${score}/3 plz Restart`)
+    }
 }
 
 
@@ -88,16 +82,24 @@ function restart(){
     question_list_index=0;
     score = 0;
     document.getElementById('score').textContent = "score :" + score;
-    document.getElementById('result').textContent="";
-    // document.getElementById("next-question").style.display = "inline"; // Show the Next Question button
-    // document.getElementById("play-again").style.display = "none";
-
+    
     quiz_option_box()
 
 
 }
 
 
+
+document.addEventListener('keydown', function(event) {
+    if (event.key >= '1' && event.key <= '4') {
+        correct_option(parseInt(event.key) - 1);
+    }
+});
+
+
+
+
 quiz_option_box()
 
 
+//redirect page 
