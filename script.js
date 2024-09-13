@@ -34,6 +34,7 @@ function  quiz_option_box(){
     document.getElementById("option4").textContent = question_list[question_list_index].options[3];
 }
 
+document.getElementById('next').disabled=true;
 
 function correct_option(select_option){
   if(select_option == question_list[question_list_index].answer){
@@ -43,7 +44,7 @@ function correct_option(select_option){
         
         document.getElementById('score').textContent = ` score :${score}`;
         document.getElementById(`option${select_option + 1}`).style.backgroundColor = 'green'
-
+        document.getElementById('next').disabled = false;
        // here the option is the simple string of the  of the multiple id`s and select_option passing the 
        // the index and "select_option +1" show the actual option b/z the index start from 0 and option start
        // the 1; 
@@ -52,7 +53,7 @@ function correct_option(select_option){
          document.getElementById(`option${select_option + 1}`).style.backgroundColor = 'red';
           
         
-         document.getElementById(`option${question_list[question_list_index].answer + 1}`).style.backgroundColor = 'green';
+document.getElementById(`option${question_list[question_list_index].answer + 1}`).style.backgroundColor = 'green';
         
         }
         
@@ -80,7 +81,9 @@ function disable_option(){
 function nextQuestion() {
 
    
+   
     for(var i =1;i<=4;i++){
+        
         document.getElementById(`option${i}`).style.backgroundColor = 'white'
         document.getElementById(`option${i}`).disabled=false;
        
@@ -111,7 +114,7 @@ function restart(){
     question_list_index=0;
     score = 0;
     document.getElementById('score').textContent = "score :" + score;
-    document.getElementById('quiz-c')
+   
     
     quiz_option_box()
 
