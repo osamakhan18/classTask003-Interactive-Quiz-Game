@@ -36,52 +36,82 @@ function  quiz_option_box(){
 
 
 function correct_option(select_option){
-
-   
-    
-
-    if(select_option == question_list[question_list_index].answer){
+  if(select_option == question_list[question_list_index].answer){
         
-     
+    
         score++;
         
         document.getElementById('score').textContent = ` score :${score}`;
         document.getElementById(`option${select_option + 1}`).style.backgroundColor = 'green'
-       
+
+       // here the option is the simple string of the  of the multiple id`s and select_option passing the 
+       // the index and "select_option +1" show the actual option b/z the index start from 0 and option start
+       // the 1; 
     }else{
-       
+      
          document.getElementById(`option${select_option + 1}`).style.backgroundColor = 'red';
-           
+          
+        
+         document.getElementById(`option${question_list[question_list_index].answer + 1}`).style.backgroundColor = 'green';
+        
+        }
+        
+        disable_option()
     }
 
+    
+    
+
+function disable_option(){
+    var total_option = 4;
+    for(var i =0 ;i<=total_option;i++){
+        var option_button = document.getElementById(`option${i}`)
+        if(option_button){
+            option_button.disabled = true;
+        }
+    }
 }
+   
+    
+
+  
 
 
 function nextQuestion() {
 
-    var option1=document.getElementById('option1').style.backgroundColor ='white'
-    var option1=document.getElementById('option2').style.backgroundColor ='white'
-    var option1=document.getElementById('option3').style.backgroundColor ='white'
-    var option1=document.getElementById('option4').style.backgroundColor ='white'
-
+   
+    for(var i =1;i<=4;i++){
+        document.getElementById(`option${i}`).style.backgroundColor = 'white'
+        document.getElementById(`option${i}`).disabled=false;
+       
+    }
     
 
     if (question_list_index < question_list.length-1 ) {
         question_list_index++;
         quiz_option_box();
+
+        
        
 
     } else {
-      
-        alert(`your final score is ${score}/3 plz Restart`)
+       document.getElementById('h1-box').style.display= 'none'
+        document.getElementById('quiz-container').style.display= 'none'
+          document.getElementById('final-result').style.display= 'block'
+        document.getElementById('result').textContent = `your final score is ${score}`;
+        
     }
 }
 
 
 function restart(){
+    var main = document.getElementById("quiz-container");
+     
+    main.style.display = "block";
     question_list_index=0;
     score = 0;
     document.getElementById('score').textContent = "score :" + score;
+    document.getElementById('quiz-c')
     
     quiz_option_box()
 
